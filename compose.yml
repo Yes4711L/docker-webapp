@@ -1,0 +1,13 @@
+---
+version: "3.9"
+services:
+  devopsdb:
+    image: yes4711l/manual:db
+    ports:
+      - "3306:3306"
+  application:
+    image: yes4711l/manual:app
+    ports:
+      - "1111:8080"
+    depends_on:
+      - "devopsdb"
