@@ -2,12 +2,16 @@
 version: "3.9"
 services:
   devopsdb:
-    image: yes4711l/manual:db
+    image: yes4711l/automation:db
     ports:
       - "3306:3306"
+    deploy:
+      replicas: 3
   application:
-    image: yes4711l/manual:app
+    image: yes4711l/automation:app
     ports:
       - "1111:8080"
+    deploy:
+      replicas: 2
     depends_on:
       - "devopsdb"
